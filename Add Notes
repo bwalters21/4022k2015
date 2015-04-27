@@ -35,3 +35,17 @@ I Exported as dbf and opened in excel.
 Excel allowed me to delete insignificant columns, edit column names and create a nice clean table that can be copied
 into the database by csv. The data is now ready to be loaded 
 in to the final database where the percent change in land cover query can be ran. 
+
+CREATE TABLE landcover06 (county_name integer, open_water integer,
+ barren_land integer, cultivated integer, total_forest integer, developed integer,
+ shrub_grassland integer, wetland integer)
+ 
+CREATE TABLE landcover2011 (county_name integer, open_water integer,
+ barren_land integer, cultivated integer, total_forest integer, developed integer,
+ shrub_grassland integer, wetland integer) 
+ 
+CREATE TABLE landcover01 (objectidcounty_name integer, open_water integer,
+ barren_land integer, cultivated integer, total_forest integer, developed integer,
+ shrub_grassland integer, wetland integer)
+ 
+ 
