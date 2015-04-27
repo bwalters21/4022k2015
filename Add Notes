@@ -20,3 +20,18 @@ SELECT a.county
        ,SUM(ST_Count(ST_Clip(b."-i", 1, a.geom, TRUE)) * pow(90,2)) AS square_meters
 FROM  ga_counties_2000 a
 INNER JOIN  nlcd2006 b ON ST_Intersects(a.geom, b."-i") GROUP BY a.county
+
+After stumbling with the tabulate area command in pgadminII. 
+Worked toward generating land cover change report for Georgia by county from 2006-2011.
+In Arc Map added US county shp file. Refined the view buy building definition query to show only counties from Georgia.
+(“STATEFP 10” = ‘13’)
+Ran the tabulate area tool. Inputs the county feature data set, with Zone as County Name and input raster as the nlcd data.
+This tool generates a table with total area of each land set class per county.
+Open Attribute table to view results. There were many field that could be added together. 
+Cleaned the table up by creating four new fields (Total Forest, Developed, Shrub/Grassland and Wetland). 
+These new fields along with Open Water, barren Land and Cultivated will be the basis for the land cover change.
+After creating the fields for all three years.  
+I Exported as dbf and opened in excel. 
+Excel allowed me to delete insignificant columns, edit column names and create a nice clean table that can be copied
+into the database by csv. The data is now ready to be loaded 
+in to the final database where the percent change in land cover query can be ran. 
